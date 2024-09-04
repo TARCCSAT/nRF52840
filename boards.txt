@@ -1,0 +1,67 @@
+# -----------------------------------
+# Supermini nRF52840
+# -----------------------------------
+supermini_nrf52840.name=Supermini nRF52840
+
+# VID/PID for Bootloader, Arduino & CircuitPython
+supermini_nrf52840.vid.0=0x239A
+supermini_nrf52840.pid.0=0x8029
+supermini_nrf52840.vid.1=0x239A
+supermini_nrf52840.pid.1=0x0029
+supermini_nrf52840.vid.2=0x239A
+supermini_nrf52840.pid.2=0x002A
+supermini_nrf52840.vid.3=0x239A
+supermini_nrf52840.pid.3=0x802A
+
+# Upload
+supermini_nrf52840.bootloader.tool=bootburn
+supermini_nrf52840.upload.tool=nrfutil
+supermini_nrf52840.upload.protocol=nrfutil
+supermini_nrf52840.upload.use_1200bps_touch=true
+supermini_nrf52840.upload.wait_for_upload_port=true
+supermini_nrf52840.upload.maximum_size=524288
+supermini_nrf52840.upload.maximum_data_size=65536
+
+# Build
+supermini_nrf52840.build.mcu=cortex-m4
+supermini_nrf52840.build.f_cpu=64000000
+supermini_nrf52840.build.board=NRF52840_SUPERMINI
+supermini_nrf52840.build.core=nRF5
+supermini_nrf52840.build.variant=supermini_nrf52840
+supermini_nrf52840.build.usb_manufacturer="Supermini"
+supermini_nrf52840.build.usb_product="USBandBTNAME" 
+supermini_nrf52840.build.extra_flags=-DNRF52840_XXAA {build.flags.usb}
+supermini_nrf52840.build.ldscript=nrf52840_s140_v6.ld
+supermini_nrf52840.build.openocdscript=scripts/openocd/daplink_nrf52.cfg
+supermini_nrf52840.build.vid=0x239A
+supermini_nrf52840.build.pid=0x8029
+supermini_nrf52840.build.uf2_family=0xADA52840
+
+# Menu: SoftDevice
+supermini_nrf52840.menu.softdevice.s140v6=S140 6.1.1
+supermini_nrf52840.menu.softdevice.s140v6.build.sd_name=s140
+supermini_nrf52840.menu.softdevice.s140v6.build.sd_version=6.1.1
+supermini_nrf52840.menu.softdevice.s140v6.build.sd_fwid=0x00B6
+
+# Menu: Debug Level
+supermini_nrf52840.menu.debug.l0=Level 0 (Release)
+supermini_nrf52840.menu.debug.l0.build.debug_flags=-DCFG_DEBUG=0
+supermini_nrf52840.menu.debug.l1=Level 1 (Error Message)
+supermini_nrf52840.menu.debug.l1.build.debug_flags=-DCFG_DEBUG=1
+supermini_nrf52840.menu.debug.l2=Level 2 (Full Debug)
+supermini_nrf52840.menu.debug.l2.build.debug_flags=-DCFG_DEBUG=2
+supermini_nrf52840.menu.debug.l3=Level 3 (Segger SystemView)
+supermini_nrf52840.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3
+supermini_nrf52840.menu.debug.l3.build.sysview_flags=-DCFG_SYSVIEW=1
+
+# Menu: Debug Port
+supermini_nrf52840.menu.debug_output.serial=Serial
+supermini_nrf52840.menu.debug_output.serial.build.logger_flags=-DCFG_LOGGER=0
+supermini_nrf52840.menu.debug_output.serial1=Serial1
+supermini_nrf52840.menu.debug_output.serial1.build.logger_flags=-DCFG_LOGGER=1 -DCFG_TUSB_DEBUG=CFG_DEBUG
+supermini_nrf52840.menu.debug_output.rtt=Segger RTT
+supermini_nrf52840.menu.debug_output.rtt.build.logger_flags=-DCFG_LOGGER=2 -DCFG_TUSB_DEBUG=CFG_DEBUG -DSEGGER_RTT_MODE_DEFAULT=SEGGER_RTT_MODE_BLOCK_IF_FIFO_FULL
+
+
+
+
